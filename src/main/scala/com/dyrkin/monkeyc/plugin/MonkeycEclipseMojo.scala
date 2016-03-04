@@ -20,23 +20,22 @@ class MonkeycEclipseMojo extends AbstractMojo {
 
   override def execute(): Unit = {
     val projectDefinition =
-      s"""<?xml version="1.0" encoding="UTF-8"?>
-          |  <projectDescription>
-          |    <name>$artifactId</name>
-          |    <comment></comment>
-          |    <projects>
-          |    </projects>
-          |    <buildSpec>
-          |      <buildCommand>
-          |        <name>connectiq.builder</name>
-          |        <arguments>
-          |        </arguments>
-          |      </buildCommand>
-          |    </buildSpec>
-          |    <natures>
-          |      <nature>connectiq.projectNature</nature>
-          |    </natures>
-          |  </projectDescription>""".stripMargin
+      <projectDescription>
+        <name>{artifactId}</name>
+        <comment></comment>
+        <projects>
+        </projects>
+        <buildSpec>
+          <buildCommand>
+            <name>connectiq.builder</name>
+            <arguments>
+            </arguments>
+          </buildCommand>
+        </buildSpec>
+        <natures>
+          <nature>connectiq.projectNature</nature>
+        </natures>
+      </projectDescription>.toString()
 
     val projectFile = new File(basedir.getAbsolutePath, ".project")
     projectFile.delete()
