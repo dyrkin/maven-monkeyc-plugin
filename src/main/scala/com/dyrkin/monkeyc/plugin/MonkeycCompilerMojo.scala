@@ -16,7 +16,7 @@ import scala.util.Try
   * @author eugene zadyra
   */
 @Mojo(name = "compile", defaultPhase = LifecyclePhase.COMPILE)
-class MonkeycCompileMojo extends AbstractMojo {
+class MonkeycCompilerMojo extends AbstractMojo {
 
   @Component
   var project: MavenProject = _
@@ -52,15 +52,11 @@ class MonkeycCompileMojo extends AbstractMojo {
 
     val command = buildCommand(sdkLocation, target, sourceFiles, resourceFiles)
 
-    val logger = ProcessLogger(
-      (o: String) => getLog.info(o),
-      (e: String) => getLog.error(e))
-
-    command.!(logger)
+    command ! getLog
   }
 
   def buildCommand(sdk: String, target: File, sourceFiles: Seq[File], resourceFiles: Seq[File]) = {
-    s"$sdk/bin/monkeyc${if (isWin) ".bat" else ""}" +
+    s"$sdk/bin/${os("monkeyc", ext = ".bat")}" +
       s" -m ${manifest.getAbsolutePath}" +
       s" -o ${target.getAbsolutePath}" +
       s" ${sourceFiles.map(_.getAbsolutePath).mkString(" ")}" +

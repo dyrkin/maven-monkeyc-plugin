@@ -11,6 +11,7 @@
 
     <properties>
         <scala.version>2.11.7</scala.version>
+        <scala.xml.version>1.0.5</scala.xml.version>
         <mvn.version>3.3.9</mvn.version>
         <mvn.plugin.version>3.4</mvn.plugin.version>
     </properties>
@@ -37,6 +38,11 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-xml_2.11</artifactId>
+            <version>${scala.xml.version}</version>
         </dependency>
 
         <!-- TEST DEPS -->
