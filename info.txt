@@ -1,0 +1,24 @@
+Compiler usage
+[INFO] usage: monkeyc [-a <arg>] [-b] [-d <arg>] [-e] [-g] [-i <arg>] [-k] [-m
+[INFO]                <arg>]
+[INFO]                [-n <arg>] [-o <arg>] [-p <arg>] [-q] [-r] [-u <arg>] [-v]
+[INFO]                [-w] [-x
+[INFO]                <arg>] [-z <arg>]
+[INFO]  -a,--apidb <arg>          API import file
+[INFO]  -b,--buildapi             Build API output files
+[INFO]  -d,--device <arg>         Target device (default: square_watch_sim)
+[INFO]  -e,--package-app          Create an application package.
+[INFO]  -g,--debug                Print debug output
+[INFO]  -i,--import-dbg <arg>     Import api.debug.xml
+[INFO]  -k,--write-db             Write out the api.db file
+[INFO]  -m,--manifest <arg>       Manifest file
+[INFO]  -n,--api-version <arg>    The new API version
+[INFO]  -o,--output <arg>         Output file to create
+[INFO]  -p,--project-info <arg>   projectInfo.xml file to use when compiling
+[INFO]  -q,--carray               Write output as a C array (deprecated)
+[INFO]  -r,--release              Strip debug information
+[INFO]  -u,--devices <arg>        devices.xml file to use when compiling
+[INFO]  -v,--version              Prints the compiler version
+[INFO]  -w,--warn                 Show compiler warnings
+[INFO]  -x,--excludes <arg>       Add annotations to the exclude list
+[INFO]  -z,--rez <arg>            Resource file
