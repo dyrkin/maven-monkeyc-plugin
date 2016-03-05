@@ -5,6 +5,7 @@ import java.io.File
 import org.apache.maven.model.Resource
 import org.apache.maven.plugin.logging.Log
 
+import scala.language.implicitConversions
 import scala.sys.process.ProcessLogger
 
 /**
@@ -19,7 +20,7 @@ package object plugin {
 
   def isWin = sys.props("os.name").toLowerCase().contains("win")
 
-  implicit class FileScanner(file: File) {
+  implicit class Directory(file: File) {
     def find(extensions: String*) = {
       def find(f: File): Array[File] = {
         val these = f.listFiles
@@ -42,11 +43,11 @@ package object plugin {
     }
   }
 
-  implicit class RichResource(resource: Resource) {
+  implicit class ResourceConversions(resource: Resource) {
     def asFile = new File(resource.getDirectory)
   }
 
   def os(unixName: String, ext: String = ".exe", winName: Option[String] = None) = {
-    if(isWin) winName getOrElse s"$unixName$ext" else unixName
+    if (isWin) winName getOrElse s"$unixName$ext" else unixName
   }
 }

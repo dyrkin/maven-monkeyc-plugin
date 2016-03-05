@@ -1,7 +1,6 @@
 package com.dyrkin.monkeyc.plugin
 
 import java.io.{File, PrintWriter}
-import java.{util => ju}
 
 import org.apache.maven.plugin.AbstractMojo
 import org.apache.maven.plugins.annotations.{Mojo, Parameter}
